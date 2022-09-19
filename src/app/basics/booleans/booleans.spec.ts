@@ -1,6 +1,6 @@
 import {falseFunction, userLogged} from "./booleans";
 
-describe(`Boolean's tests`, () => {
+xdescribe(`Boolean's tests`, () => {
   it('Should return true',  () => {
       const response = userLogged();
       expect(response).toBeTruthy();

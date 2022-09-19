@@ -1,6 +1,6 @@
 import {increment} from "./numbers";
 
-describe(`Numbers' tests`, () => {
+xdescribe(`Numbers' tests`, () => {
   it('Should return 100 if the number sended is bigger than 100', () => {
     const num = 150;
     const response = increment(num);

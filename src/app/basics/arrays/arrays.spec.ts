@@ -1,6 +1,6 @@
 import {getRobots} from "./arrays";
 
-describe(`Arrays' tests`, () => {
+xdescribe(`Arrays' tests`, () => {
   it('should return at least 3 robots', () => {
     const response = getRobots();
     expect(response.length).toBeGreaterThanOrEqual(3);
