@@ -35,8 +35,30 @@ describe('Incremendator Component', () => {
     component.cambiarValor(5);
     fixture.detectChanges();
 
-    const input = fixture.debugElement.query(By.css('input')).nativeElement;
+    fixture.whenStable().then(() => {
+      const input = fixture.debugElement.query(By.css('input')).nativeElement;
 
-    expect(input.value).toBe('55');
+      expect(input.value).toBe('55');
+    });
+  });
+
+  it('should increment/decrement in 5 when the button is clicked', () => {
+    const buttons = fixture.debugElement.queryAll(By.css('.btn-primary'));
+
+    buttons[0].triggerEventHandler('click', null);
+    expect(component.progreso).toBe(45);
+
+    buttons[1].triggerEventHandler('click', null);
+    expect(component.progreso).toBe(50);
+  });
+
+  it('should render 45 when the button is clicked the first time ', function () {
+    const button = fixture.debugElement.query(By.css('.btn-primary'));
+    button.triggerEventHandler('click', null);
+
+    fixture.detectChanges();
+
+    const progress = fixture.debugElement.query(By.css('h3')).nativeElement;
+    expect(progress.innerHTML).toContain(45);
   });
 });
